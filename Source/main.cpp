@@ -4,8 +4,8 @@
 #include <stdexcept>
 #include <iostream>
 
-#include "GUIMediator/GUIMediator.h"
-#include "Realization/Editor.h"
+#include "Abstraction/Abstraction.h"
+#include "ImplementorComponents/Implementor/Implementor.h"
 #include "Mock/MockControlElements.h"
 
 void runCallbacksListening();
@@ -16,8 +16,8 @@ int main()
 
     try
     {
-        std::shared_ptr<Editor> editor = std::make_shared<Editor>();
-        std::unique_ptr<Mediator> guiMediator = std::make_unique<GUIMediator>(editor);
+        std::shared_ptr<IImplementor> editor = std::make_shared<Implementor>();
+        std::unique_ptr<IAbstraction> guiMediator = std::make_unique<Abstraction>(editor);
 
         runCallbacksListening();
     }

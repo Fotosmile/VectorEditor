@@ -12,7 +12,7 @@
 #include <list>
 
 class RasterImage;
-class Primitive;
+class IPrimitive;
 
 class MockControlElements
 {
@@ -33,7 +33,7 @@ public:
     void runWindowClick(std::size_t index, int x, int y);
 
     std::unique_ptr<RasterImage> getRasterImageFromPrimitives(
-            const std::list<std::shared_ptr<Primitive>>& primitives);
+            const std::list<std::shared_ptr<IPrimitive>>& primitives);
 
 private:
     MockControlElements() = default;

@@ -13,8 +13,6 @@ public:
     Color();
     explicit Color(const std::string& color);
     Color(int r, int g, int b);
-    ~Color() = default;
-    Color(const Color& other) = default;
 
     int getR() const;
     int getG()const;

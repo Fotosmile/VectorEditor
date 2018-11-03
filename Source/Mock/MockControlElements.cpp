@@ -7,7 +7,7 @@
 #include "MockControlElements.h"
 #include "Common/CommonDefines.h"
 #include "Common/RasterImage.h"
-#include "Primitive/Primitive.h"
+#include "Primitive/IPrimitive.h"
 
 MockControlElements& MockControlElements::Instance()
 {
@@ -56,7 +56,7 @@ void MockControlElements::runWindowClick(std::size_t index, int x, int y)
 }
 
 std::unique_ptr<RasterImage> MockControlElements::getRasterImageFromPrimitives(
-        const std::list<std::shared_ptr<Primitive>>& primitives)
+        const std::list<std::shared_ptr<IPrimitive>>& primitives)
 {
     std::unique_ptr<RasterImage> image = std::make_unique<RasterImage>(defaultWindowWidth, defaultWindowHeight);
     std::cout << "Specific actions of converting promitives to the raster image" << std::endl;
