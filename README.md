@@ -1,27 +1,27 @@
-## Векторный редактор
+## Vector editor
 
-## V1.0
+Self-education task for design patterns practice.
 
-Какие паттерны использовались?
-
-1. Мост для разделения элементов управления и другой логики GUI (режим, переход между режимами) (GUIMediator) и редактора (Editor).
-2. Абстрактная фабрика для получения элементов управления (Button, Label, LineEdit, Window) родных для конкретной системы (ControlsFactory, LinuxControlsFactory, WindowsControlsFactory).
-3. Посредник для взаимодействия элементов управления с GUI (ControlElement, GUIMediator).
-4. Наблюдатель для выполнения всех нужных действий (изменить панель инструметов, отобразить уведомление, изменить иконку курсора, и т.д.) при переходе между состояниями (EventManager, Subscriber).
-5. Состояние для GUIMediator, чтобы ограничить действия для конкретного режима (создание примитивов, редактирование примитивов) (GUIState, CreatingEditorState, EditingEditorState).
-6. Команда для выполнения действий над примитивами и возможности отмены (Command).
-7. Компоновщик для возможности группировки примитивов (Primitive, Composite).
-8. Прототип для возможности копирования примитивов (Primitive).
-9. Мост для отделения рисования примитивов (Painter, LinuxPainter, WindowsPainter) от управления ими (Primitive).
-10. Декоратор для применения фильтров к изображению (ImageFilters).
-11. Mock-объект - одиночка. У него регистрируются callback'и элементов управления, и из этого Mock-объекта можно их дергать.
-
-## V1.1
-
-1. Все абстрактные классы теперь начинаются с "I";
-2. Убрал классическое представление посредника между Abstraction и Control Elements. Теперь для оповещания своего "посредника" они вызывают триггер, который "посредник" создал для них;
-3. Исправлен мост между Abstraction и Implementor (добавлены интерфейсы, переименовал);
-4. Добавлен интерфейс для EventManager;
-5. Убрал в производных классах деструкторы по умолчанию (= default);
-6. Добавил функцию PainterFactory для создания Painter'ов;
-7. Убрал промежуточный класс ImageFilterDecorator, чтобы не было возможности его создать.
+1. The `Bridge` design pattern to separate GUI logic 
+(control elements, state, transitions between states)
+and the `Editor` logic;
+2. The `Abstract Factory` design pattern for the ability to obtain a control element
+(`Button`, `Label`, `LineEdit`, `Window`) via specific system 
+(`LinuxControlsFactory`, `WindowsControlsFactory`);
+3. The `Mediator` design pattern for the interaction of control elements with
+`GUIMediator`;
+4. The `Observer` design pattern for the ability to perform all necessary
+actions (change the toolbar, display a notification, change the cursor icon, etc.) 
+when a user switches between states (`EventManager`, `Subscriber`);
+5. The `State` design pattern for `GUIMediator` 
+to limit actions for a specific mode (creation of primitives, editing of primitives) 
+(`CreatingEditorState`, `EditingEditorState`);
+6. The `Command` design pattern to perform actions on primitives 
+with a possibility  of cancellation;
+7. The `Composite` design pattern for a possibility of grouping primitives;
+8. The `Prototype` design pattern for the ability to copy primitives;
+9. The `Bridge` design pattern to separate the ability to draw the primitive
+(`LinuxPainter`, `WindowsPainter`) from their management;
+10. The `Decorator` design pattern for the ability to apply a filter for an image;
+11. The `Singleton` design pattern for the Mock object, 
+which registers callbacks for control elements and gives the ability to call the callbacks.
