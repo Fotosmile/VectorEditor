@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(Architecture)
+project(vector-editor)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -62,4 +62,4 @@ set(SOURCE_FILES
         ${COMMON}
         main.cpp)
 
-add_executable(Architecture ${SOURCE_FILES})
+add_executable(vector_editor ${SOURCE_FILES})
